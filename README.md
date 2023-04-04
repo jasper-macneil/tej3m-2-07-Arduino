@@ -23,16 +23,13 @@ void setup() {
 
 void loop() {
   digitalWrite(TRIG_PIN, HIGH);
-  delayMicroseconds(10);
+  delayMicroseconds(10);                       
   digitalWrite(TRIG_PIN, LOW);
   duration = pulseIn(ECHO_PIN, HIGH);
   distance = 0.017 * duration;
 
   if (distance < DISTANCE_THRESHOLD) {
     servo.write(180);
-    delay(1000);
-    servo.write(0);
-    delay(1000);
   } else {
     servo.write(0);
   }
